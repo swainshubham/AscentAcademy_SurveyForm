@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-color: blue; 
+  background-image: linear-gradient(rgba(27, 27, 50, 0.8), #405eb3), url(https://static.toiimg.com/photo/67214972.cms); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(100, 10, 10, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(1, 70, 120, 0.25);
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="text-center">Survey Form</h1>
+        <p id="description" class="description text-center">
+          
+        </p>
+      </header>
+      <form id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number"
+            >Age<span class="clue"> (optional)</span></label
+          >
+          <input
+            type="number"
+            name="age"
+            id="number"
+            min="10"
+            max="99"
+            class="form-control"
+            placeholder="Age"
+          />
+        </div>
+        <div class="form-group">
+          <p>Favorite genre you like?</p>
+          <select id="dropdown" name="genres" class="form-control" required>
+            <option disabled selected value>Select favorite genre</option>
+            <option value="fiction">Fiction</option>
+            <option value="novel">Novel</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="thriller">Thriller</option>
+            <option value="sci-fi">Science fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="horror">Horror</option>
+            <option value="action">Action</option>
+            <option value="young-adult-fiction">Young adult fiction</option>
+            <option value="historical-fiction">Historical fiction</option>
+            <option value="literary-fiction">Literary fiction</option>
+            <option value="drama">Drama</option>
+            <option value="non-fiction">Nonfiction</option>
+            <option value="psychological-thriller">
+              Psychological thriller
+            </option>
+            <option value="romance">Romance</option>
+            <option value="memoir">Memoir</option>
+            <option value="biography">Biography</option>
+            <option value="comedy">Comedy</option>
+            <option value="history">History</option>
+            <option value="preferNo">Prefer not to say</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>Would you recommend books to non-readers?</p>
+          <label>
+            <input
+              name="user-recommend"
+              value="definitely"
+              type="radio"
+              class="input-radio"
+              checked
+            />Definitely</label
+          >
+          <label>
+            <input
+              name="user-recommend"
+              value="maybe"
+              type="radio"
+              class="input-radio"
+            />Maybe</label
+          >
+          <label
+            ><input
+              name="user-recommend"
+              value="not-sure"
+              type="radio"
+              class="input-radio"
+            />Not sure</label
+          >
+        </div>
+        <div class="form-group">
+          <p>Best self-help book you would recommend to beginners?</p>
+          <select id="most-like" name="mostLike" class="form-control" required>
+            <option disabled selected value>Select an option</option>
+            <option value="atomic-habits">Atomic Habits by James Clear</option>
+            <option value="thinking-fast-and-slow">
+              Thinking Fast And Slow by Daniel Kahneman
+            </option>
+            <option value="the-four-agreements">
+              The Four Agreements by Don Miguel Ruiz
+            </option>
+            <option value="the-7-habits-of-highly-effective-people">
+              The 7 Habits Of Highly Effective People by Stephen R. Covey
+            </option>
+            <option value="you-are-a-badass">
+              You Are A Badass by Jen Sincero
+            </option>
+            <option value="the-courage-to-be-disliked">
+              The Courage To Be Disliked by Ichiro Kishimi & Fumitake Koga
+            </option>
+            <option value="the-magic-of-thinking-big">
+              The Magic Of Thinking Big by David Joseph Schwartz
+            </option>
+            <option value="how-to-win-friends-and-influence-people">
+              How To Win Friends And Influence People by Dale Carnegie
+            </option>
+            <option value="rich-dad-poor-dad">
+              Rich Dad Poor Dad by Robert T. Kiyosaki
+            </option>
+            <option value="think-and-grow-rich">
+              Think And Grow Rich by Napoleon Hill
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>
+            What would you like to see improved?
+            <span class="clue"> (Check all that apply)</span>
+          </p>
+          <label
+            ><input
+              name="prefer"
+              value="genres"
+              type="checkbox"
+              class="input-checkbox"
+            />Genres</label
+          >
+          <label
+            ><input
+              name="prefer"
+              value="book-recommendations"
+              type="checkbox"
+              class="input-checkbox"
+            />Book recommendations</label
+          >
+        </div>
+        <div class="form-group">
+          <p>Any comments on the books you read recently?</p>
+          <textarea
+            id="comments"
+            class="input-textarea"
+            name="comment"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
